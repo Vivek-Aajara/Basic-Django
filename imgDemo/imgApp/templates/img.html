@@ -1,0 +1,18 @@
+<h1>Person List</h1>
+
+{% for person in persons %}
+
+<p><strong>Name:</strong> {{ person.name }}</p>
+<p><strong>Age:</strong> {{ person.age }}</p>
+<p><strong>Email:</strong> {{ person.email }}</p>
+<p><strong>Gender:</strong> {{ person.gender }}</p>
+
+<img src="{{ person.img.url }}" width="200" height="200" alt="Person Image">
+
+<hr>
+
+{% empty %}
+
+<p>No persons found.</p>
+
+{% endfor %}
