@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Professors | Student Management System{% endblock %}
+{% block content %}
+  <div class="card">
+    <h2 class="section-title">Professor Records</h2>
+    <p class="section-sub">{{ professors|length }} professor{{ professors|length|pluralize }} found</p>
+
+    {% if professors %}
+    <table>
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in professors %}
+        <tr>
+          <td>{{ p.emp_id }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ p.email }}</td>
+          <td>{{ p.department }}</td>
+          <td>{{ p.phone|default:"—" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p class="empty">No professors added yet. Add some from the Django admin at /admin/.</p>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Subject Records</h2>
+    <p class="section-sub">{{ subjects|length }} subject{{ subjects|length|pluralize }} found</p>
+
+    {% if subjects %}
+    <table>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Subject Name</th>
+          <th>Credits</th>
+          <th>Taught By</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sub in subjects %}
+        <tr>
+          <td>{{ sub.code }}</td>
+          <td>{{ sub.name }}</td>
+          <td>{{ sub.credits }}</td>
+          <td>{{ sub.professor.name }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p class="empty">No subjects added yet. Add some from the Django admin at /admin/.</p>
+    {% endif %}
+  </div>
+
+  <div class="back-wrap">
+    <a class="btn btn-secondary" href="{% url 'home' %}">&larr; Back</a>
+  </div>
+{% endblock %}

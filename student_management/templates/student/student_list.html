@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Students | Student Management System{% endblock %}
+{% block content %}
+  <div class="card">
+    <h2 class="section-title">Student Records</h2>
+    <p class="section-sub">{{ students|length }} student{{ students|length|pluralize }} found</p>
+
+    {% if students %}
+    <table>
+      <thead>
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Course</th>
+          <th>Year</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in students %}
+        <tr>
+          <td>{{ s.roll_no }}</td>
+          <td>{{ s.name }}</td>
+          <td>{{ s.email }}</td>
+          <td>{{ s.course }}</td>
+          <td>{{ s.get_year_display }}</td>
+          <td>{{ s.phone|default:"—" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p class="empty">No students added yet. Add some from the Django admin at /admin/.</p>
+    {% endif %}
+  </div>
+
+  <div class="back-wrap">
+    <a class="btn btn-secondary" href="{% url 'home' %}">&larr; Back</a>
+  </div>
+{% endblock %}

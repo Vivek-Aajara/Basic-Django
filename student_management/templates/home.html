@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Home | Student Management System{% endblock %}
+{% block content %}
+  <div class="card">
+    <h2 class="section-title">Welcome</h2>
+    <p class="section-sub">Choose which records you want to view.</p>
+    <div class="option-grid">
+      <a class="option-card" href="{% url 'student:list' %}">
+        <div class="icon">🎓</div>
+        <h2>Student</h2>
+        <p>View all registered students</p>
+      </a>
+      <a class="option-card" href="{% url 'professor:list' %}">
+        <div class="icon">🧑‍🏫</div>
+        <h2>Professor</h2>
+        <p>View professors and the subjects they teach</p>
+      </a>
+    </div>
+  </div>
+{% endblock %}

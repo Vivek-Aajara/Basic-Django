@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Student Management System{% endblock %}</title>
+  <style>
+    :root {
+      --navy: #2F3C7E;
+      --coral: #F96167;
+      --bg: #F4F5FB;
+      --ink: #22254B;
+      --subtle: #6B7099;
+      --card: #FFFFFF;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 22px 40px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      margin: 4px 0 0;
+      color: #C7CBEB;
+      font-size: 13px;
+    }
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 2px 10px rgba(47, 60, 126, 0.08);
+      margin-bottom: 28px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      font-size: 14px;
+    }
+    thead th {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 600;
+    }
+    thead th:first-child { border-radius: 8px 0 0 8px; }
+    thead th:last-child { border-radius: 0 8px 8px 0; }
+    tbody tr:nth-child(even) { background: #F4F5FB; }
+    tbody tr:hover { background: #EFF1FA; }
+    tbody td { border-bottom: 1px solid #E6E8F5; }
+    .empty {
+      color: var(--subtle);
+      font-style: italic;
+      padding: 20px 0;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--coral);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-secondary {
+      background: var(--navy);
+    }
+    .option-grid {
+      display: flex;
+      gap: 24px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .option-card {
+      flex: 1;
+      min-width: 220px;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(47, 60, 126, 0.08);
+      text-decoration: none;
+      color: var(--ink);
+      transition: transform 0.15s;
+    }
+    .option-card:hover { transform: translateY(-4px); }
+    .option-card .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .option-card h2 {
+      margin: 6px 0;
+      color: var(--navy);
+      font-size: 19px;
+    }
+    .option-card p {
+      color: var(--subtle);
+      font-size: 13px;
+      margin: 0;
+    }
+    .section-title {
+      color: var(--navy);
+      font-size: 18px;
+      margin: 0 0 4px;
+    }
+    .section-sub {
+      color: var(--subtle);
+      font-size: 13px;
+      margin: 0 0 4px;
+    }
+    .back-wrap { margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student Management System</h1>
+    <p>Django project &mdash; Student &amp; Professor records</p>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
